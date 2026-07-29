@@ -1,0 +1,22 @@
+services:
+  fizgig:
+    build:
+      context: .
+      args:
+        FIZGIG_REF: master
+    image: fizgig-desktop:latest
+    gpus: all
+    shm_size: 16gb
+    ports:
+      - "5090:5090"
+      - "5225:22"
+    environment:
+      SSH_PASSWORD: change-me
+      LAUNCH_FIZGIG: "true"
+      SCREEN_WIDTH: "1920"
+      SCREEN_HEIGHT: "1080"
+    volumes:
+      - fizgig-workspace:/workspace
+
+volumes:
+  fizgig-workspace:
