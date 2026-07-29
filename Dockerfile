@@ -25,7 +25,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
       libgl1 libglib2.0-0 libsm6 libxext6 libxrender1 \
       libgomp1 libegl1 libopengl0 \
       openssh-server \
-      xvfb x11vnc novnc websockify dbus-x11 xauth \
+      xvfb x11vnc novnc websockify dbus-x11 xauth x11-utils \
       mesa-utils libgl1-mesa-dri \
       xfce4-panel xfce4-session xfce4-settings xfce4-terminal \
       xfce4-appfinder xfwm4 thunar thunar-archive-plugin \
