@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Fizgig
+Comment=Krea 2 and Klein 9B LoRA Studio
+Exec=/usr/local/bin/launch-fizgig
+Icon=/opt/Fizgig/icon.png
+Terminal=false
+Categories=Graphics;Development;
+StartupNotify=true

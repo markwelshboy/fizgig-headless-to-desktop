@@ -1,0 +1,9 @@
+.git
+.gitignore
+.github
+README.md
+compose.yaml
+workspace
+*.log
+__pycache__
+*.pyc
