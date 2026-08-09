@@ -28,17 +28,31 @@ Mount `/workspace` as persistent storage on RunPod or another container host.
 
 ## Build
 
+The repository build helper uses the `buildkit-scratch` Buildx builder by default and pushes the resulting image unless told otherwise:
+
 ```bash
-docker build -t fizgig-desktop:latest .
+bash ./build_fizgig.sh
+```
+
+Build into the standalone BuildKit cache without pushing or loading into Docker:
+
+```bash
+bash ./build_fizgig.sh --no-push --tag test
+```
+
+Explicitly load a test image into the local Docker engine:
+
+```bash
+bash ./build_fizgig.sh --load --tag test
 ```
 
 Pin Fizgig to a branch, tag, or commit at build time:
 
 ```bash
-docker build \
-  --build-arg FIZGIG_REF=master \
-  -t fizgig-desktop:latest .
+bash ./build_fizgig.sh --fizgig-ref master
 ```
+
+Override the builder with `--builder NAME` or `BUILDX_BUILDER` when required.
 
 ## Run locally
 
@@ -48,7 +62,7 @@ docker run --rm --gpus all \
   -p 5225:22 \
   -v fizgig-workspace:/workspace \
   -e SSH_PASSWORD='change-me' \
-  fizgig-desktop:latest
+  markwelshboy/fizgig-headless-to-desktop:latest
 ```
 
 Open `http://localhost:5090/vnc.html` for the desktop. Fizgig starts automatically and is also available from the desktop shortcut.
